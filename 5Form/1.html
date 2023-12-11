@@ -33,25 +33,29 @@
         video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 保持原始影片比例，不會有黑邊，但可能會裁切掉一些內容 */
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <div id="video-container">
+    <div id="video-container" onclick="startVideo()">
         <div id="overlay"></div>
-        <video id="myVideo" autoplay muted loop>
+        <video id="myVideo" muted loop>
             <source src="your-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 
     <script>
-        document.getElementById('myVideo').addEventListener('playing', function() {
+        function startVideo() {
+            var video = document.getElementById('myVideo');
+            video.play();
             document.body.style.overflow = 'visible';
-        });
+            document.getElementById('video-container').removeEventListener('click', startVideo);
+        }
     </script>
 </body>
 </html>
+
 
 
