@@ -38,22 +38,13 @@
     </style>
 </head>
 <body>
-    <div id="video-container" onclick="startVideo()">
+    <div id="video-container">
         <div id="overlay"></div>
-        <video id="myVideo" muted loop>
+        <video id="myVideo" autoplay muted loop playsinline>
             <source src="your-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-
-    <script>
-        function startVideo() {
-            var video = document.getElementById('myVideo');
-            video.play();
-            document.body.style.overflow = 'visible';
-            document.getElementById('video-container').removeEventListener('click', startVideo);
-        }
-    </script>
 </body>
 </html>
 
